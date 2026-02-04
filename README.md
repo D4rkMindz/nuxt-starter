@@ -1,4 +1,4 @@
-# HA External Client
+# Heimr
 
 A web-based administration interface for Home Assistant built with Nuxt 4 and Vue 3. This full-stack application provides user management and an external interface to interact with your Home Assistant instance.
 
