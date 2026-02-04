@@ -1,0 +1,19 @@
+{
+  "Welcome to the Homepage": "ouWelcome to the Homepage",
+  "nav": {
+    "about_me": "About Me",
+    "projects": "Projects",
+    "skills": "Skills"
+  },
+  "alt": {
+    "profile_picture": "Björn Pfoster's profile picture in a professional attire."
+  },
+  "index": {
+    "welcome": "Welcome to Heimr",
+    "title": "About the project"
+  },
+  "About": "About",
+  "Work": "Work",
+  "Projects": "Projects",
+  "Contact": "Contact"
+}

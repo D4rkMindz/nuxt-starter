@@ -1,0 +1,56 @@
+{
+  "name": "ha-external-client",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "docker": "docker compose up --build -d",
+    "docker:stop": "docker compose down",
+    "docker:clean": "docker system prune --volumes -f",
+    "docker:rebuild": "rm -rf .nuxt/ && npm run docker:stop && npm run docker:clean && docker compose up --build --remove-orphans -d",
+    "docker:dev": "docker compose -f compose.yaml -f compose.dev.yaml up -d",
+    "docker:devnd": "docker compose -f compose.yaml -f compose.dev.yaml up",
+    "docker:dev:rebuild": "rm -rf .nuxt/ && mkdir .nuxt && npm run docker:stop && npm run docker:clean && docker compose -f compose.yaml -f compose.dev.yaml up --build --remove-orphans --force-recreate -d",
+    "docker:devnd:rebuild": "rm -rf .nuxt/ && mkdir .nuxt && npm run docker:stop && npm run docker:clean && docker compose -f compose.yaml -f compose.dev.yaml up --build --remove-orphans --force-recreate",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "dev:debug": "node --inspect=0.0.0.0:9210 ./node_modules/nuxt/bin/nuxt.mjs dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "extract:i18n": "vue-i18n-extract report --vueFiles './{public/**/,app/**/,app}*.?(js|vue)' --languageFiles './i18n/locales/*.?(json|yml|yaml|js)' --add",
+    "updates": "npx npm-check-updates -u && npm install"
+  },
+  "imports": {
+    "#main": "./app/assets/css/main.css"
+  },
+  "dependencies": {
+    "@casl/ability": "^6.7.5",
+    "@casl/mongoose": "^8.0.4",
+    "@iconify-json/material-symbols-light": "^1.2.50",
+    "@nuxt/eslint": "^1.12.1",
+    "@nuxt/icon": "^2.1.1",
+    "@nuxtjs/i18n": "^10.2.1",
+    "bcryptjs": "^3.0.3",
+    "class-variance-authority": "^0.7.1",
+    "dayjs": "^1.11.19",
+    "eslint": "^9.39.2",
+    "lucide-vue-next": "^0.555.0",
+    "mongoose-delete": "^1.0.7",
+    "motion-v": "^1.7.4",
+    "nuxt": "^4.2.2",
+    "nuxt-auth-utils": "^0.5.26",
+    "nuxt-gtag": "^4.1.0",
+    "tailwindcss": "^4.1.18",
+    "vue": "^3.5.25",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@intlify/core-base": "^11.2.2",
+    "@nuxt/kit": "^4.2.2",
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/mongoose-delete": "^1.0.6",
+    "@types/mongoose-sequence": "^3.0.11",
+    "@types/node": "^24.10.4",
+    "vue-i18n-extract": "^2.0.7"
+  }
+}

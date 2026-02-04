@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+h1 {
+    @apply text-6xl mt-8 mb-4;
+}
+
+h2 {
+    @apply text-3xl mt-6 mb-3;
+}
+
+h3 {
+    @apply text-xl mt-6 mb-3;
+}
+
+h4 {
+    @apply text-lg mt-3 mb-2;
+}
+
+h5 {
+    @apply text-lg mt-2 mb-1;
+}
+
+h6 {
+    @apply text-sm mt-2 mb-1;
+}
+
+p {
+    @apply text-base my-2;
+}
+
+.btn {
+    @apply border border-s rounded px-3 py-1 my-3 bg-neutral-400 border-neutral-500 hover:bg-neutral-600;
+}
+
+.tbl {
+    @apply table table-auto w-full border border-collapse border-neutral-400;
+}
+
+.cell {
+    @apply border-y border-neutral-300;
+
+    & + .actions {
+        & .btn-icon {
+            @apply text-lg;
+        }
+    }
+}
+
+.row {
+    @apply hover:bg-neutral-400 hover:text-neutral-900 hover:cursor-pointer;
+
+    &:hover .btn-icon {
+        @apply text-neutral-900 hover:text-neutral-100;
+
+        &.danger {
+            @apply text-red-900 hover:text-red-100;
+        }
+    }
+}
+
+.danger {
+    @apply text-red-900 hover:text-red-100;
+}

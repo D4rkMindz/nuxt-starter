@@ -1,0 +1,21 @@
+{
+  "About Me": "Über mich",
+  "Welcome to the Homepage": "",
+  "Layout": "Aufteilung",
+  "nav": {
+    "about_me": "Über mich",
+    "projects": "Projekte",
+    "skills": "Skills"
+  },
+  "alt": {
+    "profile_picture": ""
+  },
+  "index": {
+    "welcome": "Heimr - Willkommen!",
+    "title": "Über das Projekt"
+  },
+  "About": "",
+  "Work": "",
+  "Projects": "",
+  "Contact": ""
+}

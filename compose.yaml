@@ -1,0 +1,50 @@
+services:
+  nuxt:
+    command: /usr/local/bin/node /heimr-server/.output/server/index.mjs
+    build:
+      context: .
+      target: production
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: "production"
+    image: heimr-server
+    container_name: heimr-server
+    restart: unless-stopped
+    init: true
+    ports:
+      - "8020:3000"
+    env_file:
+      - .env
+      - .env.production
+    networks:
+      - heimr_external_client_net
+      - heimr_db_net
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest # Use the official MongoDB image
+    container_name: heimr-mongodb
+    ports:
+      - "27017:27017" # Map the default MongoDB port (host:container)
+    environment:
+      # Set up initial authentication (optional, but recommended for production)
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
+    volumes:
+      - mongodb_data:/data/db # Persist data outside the container
+    # (Optional) Restart the container if it stops
+    restart: unless-stopped
+    networks:
+      - heimr_db_net
+
+networks:
+  heimr_external_client_net:
+    driver: bridge
+  heimr_db_net:
+    driver: bridge
+    internal: true
+
+volumes:
+  mongodb_data:
+    external: true
